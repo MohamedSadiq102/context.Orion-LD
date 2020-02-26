@@ -1,5 +1,5 @@
-#ifndef SRC_LIB_ORIONLD_KJTREE_KJTREETOCONTEXTATTRIBUTE_H_
-#define SRC_LIB_ORIONLD_KJTREE_KJTREETOCONTEXTATTRIBUTE_H_
+#ifndef SRC_LIB_ORIONLD_COMMON_ENTITYERRORPUSH_H_
+#define SRC_LIB_ORIONLD_COMMON_ENTITYERRORPUSH_H_
 
 /*
 *
@@ -23,24 +23,21 @@
 * For those usages not covered by this license please contact with
 * orionld at fiware dot org
 *
-* Author: Ken Zangelin
+* Author: Gabriel Quaresma and Ken Zangelin
 */
 extern "C"
 {
 #include "kjson/KjNode.h"                                        // KjNode
 }
 
-#include "rest/ConnectionInfo.h"                                 // ConnectionInfo
-#include "ngsi/ContextAttribute.h"                               // ContextAttribute
-
-#include "orionld/context/OrionldContext.h"                      // OrionldContext
+#include "orionld/common/orionldErrorResponse.h"                 // OrionldResponseErrorType
 
 
 
 // -----------------------------------------------------------------------------
 //
-// kjTreeToContextAttribute -
+// entityErrorPush -
 //
-extern bool kjTreeToContextAttribute(ConnectionInfo* ciP, OrionldContext* contextP, KjNode* kNodeP, ContextAttribute* caP, KjNode** typeNodePP, char** detailP);
+extern void entityErrorPush(KjNode* errorsArrayP, const char* entityId, OrionldResponseErrorType type, const char* title, const char* detail, int status);
 
-#endif  // SRC_LIB_ORIONLD_KJTREE_KJTREETOCONTEXTATTRIBUTE_H_
+#endif  // SRC_LIB_ORIONLD_COMMON_ENTITYERRORPUSH_H_

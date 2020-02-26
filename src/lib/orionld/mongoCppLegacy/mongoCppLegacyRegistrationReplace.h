@@ -1,5 +1,5 @@
-#ifndef SRC_LIB_ORIONLD_KJTREE_KJTREETOCONTEXTATTRIBUTE_H_
-#define SRC_LIB_ORIONLD_KJTREE_KJTREETOCONTEXTATTRIBUTE_H_
+#ifndef SRC_LIB_ORIONLD_MONGOCPPLEGACY_MONGOCPPLEGACYREGISTRATIONREPLACE_H_
+#define SRC_LIB_ORIONLD_MONGOCPPLEGACY_MONGOCPPLEGACYREGISTRATIONREPLACE_H_
 
 /*
 *
@@ -25,22 +25,18 @@
 *
 * Author: Ken Zangelin
 */
+
 extern "C"
 {
 #include "kjson/KjNode.h"                                        // KjNode
 }
 
-#include "rest/ConnectionInfo.h"                                 // ConnectionInfo
-#include "ngsi/ContextAttribute.h"                               // ContextAttribute
-
-#include "orionld/context/OrionldContext.h"                      // OrionldContext
-
 
 
 // -----------------------------------------------------------------------------
 //
-// kjTreeToContextAttribute -
+// mongoCppLegacyRegistrationReplace -
 //
-extern bool kjTreeToContextAttribute(ConnectionInfo* ciP, OrionldContext* contextP, KjNode* kNodeP, ContextAttribute* caP, KjNode** typeNodePP, char** detailP);
+extern bool mongoCppLegacyRegistrationReplace(const char* registrationId, KjNode* dbRegistrationP);
 
-#endif  // SRC_LIB_ORIONLD_KJTREE_KJTREETOCONTEXTATTRIBUTE_H_
+#endif  // SRC_LIB_ORIONLD_MONGOCPPLEGACY_MONGOCPPLEGACYREGISTRATIONREPLACE_H_
