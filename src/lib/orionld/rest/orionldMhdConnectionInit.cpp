@@ -205,11 +205,6 @@ static void optionsParse(const char* options)
 
     ++cP;
   }
-
-  LM_TMP(("KZ: URI Param 'noOverwrite': %s", K_FT(orionldState.uriParamOptions.noOverwrite)));
-  LM_TMP(("KZ: URI Param 'count':       %s", K_FT(orionldState.uriParamOptions.count)));
-  LM_TMP(("KZ: URI Param 'update':      %s", K_FT(orionldState.uriParamOptions.update)));
-  LM_TMP(("KZ: URI Param 'replace':     %s", K_FT(orionldState.uriParamOptions.replace)));
 }
 
 
@@ -234,10 +229,15 @@ static int orionldUriArgumentGet(void* cbDataP, MHD_ValueKind kind, const char* 
     orionldState.uriParams.limit = atoi(value);
   else if (SCOMPARE8(key, 'o', 'p', 't', 'i', 'o', 'n', 's', 0))
   {
-    LM_TMP(("KZ: Got an options URL Param: '%s'", value));
     orionldState.uriParams.options = (char*) value;
     optionsParse(value);
   }
+  else if (SCOMPARE12(key, 'g', 'e', 'o', 'p', 'r', 'o', 'p', 'e', 'r', 't', 'y', 0))
+  {
+    LM_TMP(("GEO: Got a geoproperty URI Param: %s", value));
+    orionldState.uriParams.geoproperty = (char*) value;
+  }
+
   return MHD_YES;
 }
 
