@@ -60,7 +60,7 @@ jobs:
         unzip -q master.zip;
         rm master.zip;
         cd NGSI-LD_TestSuite-master;  
-        export EXCLUDED_TESTS="001|001|003|004|014|158|";
+        export EXCLUDED_TESTS="001|003|004|014|158|";
         npm install;
 
       script:  >
